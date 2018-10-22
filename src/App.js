@@ -1,27 +1,37 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { Button } from 'react-bootstrap';
+import React, { Component } from "react";
+import Toolbar from "./components/Toolbar/Toolbar";
+import Backdrop from "./components/Backdrop/Backdrop";
+import ClassesDrawer from "./components/ClassesTab/ClassesDrawer";
 
 class App extends Component {
+  state = {
+    classesDrawerOpen: false
+  };
+
+  classesDrawerHandler = () => {
+    this.setState(prevState => {
+      return { classesDrawerOpen: !prevState.classesDrawerOpen };
+    });
+  };
+
+  backdropClickHandler = () => {
+    this.setState({ classesDrawerOpen: false });
+  };
+
   render() {
+    let backdrop;
+    if (this.state.classesDrawerOpen) {
+      backdrop = <Backdrop click={this.backdropClickHandler} />;
+    }
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          <Button bsStyle='danger'>Hello</Button>
-        </header>
+      <div style={{ height: "100%" }}>
+        <Toolbar classesDrawerHandler={this.classesDrawerHandler} />
+        <ClassesDrawer show={this.state.classesDrawerOpen} />
+        {backdrop}
+        <main style={{ marginLeft: "150px" }}>
+          <p>This is a paragraph </p>
+        </main>
       </div>
     );
   }

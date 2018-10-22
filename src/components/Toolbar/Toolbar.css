@@ -1,0 +1,56 @@
+.toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 130px;
+  background: purple;
+  height: 100%;
+  z-index: 300;
+}
+
+.toolbar_nav {
+  display: 0;
+  width: 100%;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.toolbar_logo {
+  margin: 1rem;
+}
+
+.toolbar_logo a {
+  color: white;
+  text-decoration: none;
+  font-size: 2rem;
+}
+
+.toolbar_nav-items ul {
+  list-style: none;
+  margin: 0;
+  padding: 2rem 0;
+  display: center;
+  font-size: 1.5rem;
+}
+
+.toolbar_nav-items li {
+  margin: 1rem 0;
+  padding: 0;
+}
+
+.toolbar_nav-items a {
+  color: white;
+  text-decoration: none;
+  padding: 0;
+  margin: 0 1rem;
+}
+
+.toolbar_nav-items a:hover,
+.toolbar_nav-items a:active {
+  color: orange;
+}
+
+.toolbar_logo a:hover,
+.toolbar_logo a:active {
+  color: orange;
+}
